@@ -1,0 +1,10 @@
+nav{
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0077b6;
+}

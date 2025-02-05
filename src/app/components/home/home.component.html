@@ -1,0 +1,54 @@
+<main>
+  <app-navbar></app-navbar>
+  <section>
+    <article id="contain-form">
+      <!-- TODO: Formulario para Departamento -->
+      <form *ngIf="status.form_departamento" [formGroup]="form_departamento" (ngSubmit)="onSubmitDepartamento()">
+        <div>
+          <label class="form-label" style="font-weight: 600;" for="categoria">Categoria</label>
+          <ng-select
+            (change)="valueFormCategoria($event)"
+           formControlName="categoria" [items]="categoria" bindLabel="name"
+            placeholder="Selecciona una Categoria" style="width: 15rem;height: 3rem;cursor: pointer;">
+          </ng-select>
+        </div>
+        <div>
+          <label class="form-label" style="font-weight: 600;" for="departamentos">Departamentos</label>
+          <ng-select
+            formControlName="departamento"
+            [items]="departamentos"
+            bindLabel="name"
+            bindValue="id"
+            style="cursor: pointer;width: 20rem;"
+            placeholder="Selecciona un Departamento"
+            [loading]="departamentos.length === 0">
+          </ng-select>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success">Buscar</button>
+        </div>
+      </form>
+      <!-- TODO: Formulario para Empleados -->
+       <form *ngIf="status.form_empleado"  [formGroup]="form_empleado" (ngSubmit)="onSubmitEmpleado()">
+        <div>
+          <label style="font-weight: 600;" class="form-label"  for="categoria">Categoria</label>
+          <ng-select
+          (change)="valueFormCategoria($event)"
+         formControlName="categoria" [items]="categoria" bindLabel="name"
+          placeholder="Selecciona una Categoria" style="width: 15rem;height: 3rem;cursor: pointer;">
+        </ng-select>
+        </div>
+        <div>
+          <label style="font-weight: 600;" class="form-label" for="empleado">Empleado</label>
+          <input style="width: 25rem;" type="text" name="empleado" class="form-control" placeholder="Ingrese los datos del empleado" autofocus>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success" >Buscar</button>
+        </div>
+       </form>
+    </article>
+    <article id="contain-table">
+      <h3>table</h3>
+    </article>
+  </section>
+</main>

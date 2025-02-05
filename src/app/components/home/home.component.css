@@ -1,0 +1,41 @@
+main {
+  width: 99.7vw;
+  height: 99.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0rem;
+  overflow: hidden;
+}
+section {
+  width: 70vw;
+  height: 90vh;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#contain-form {
+  width: 90%;
+  max-width: 90%;
+}
+
+#contain-form > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#contain-form > form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
