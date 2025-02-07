@@ -9,7 +9,7 @@ main {
   overflow: hidden;
 }
 section {
-  width: 70vw;
+  width: 80vw;
   height: 90vh;
   display: flex;
   flex-direction:column;
@@ -17,11 +17,12 @@ section {
   align-items: center;
   padding: 1rem;
   gap: 1rem;
-}
 
+}
 #contain-form {
-  width: 90%;
-  max-width: 90%;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 #contain-form > form {
@@ -30,12 +31,34 @@ section {
   justify-content: center;
   align-items: flex-start;
   padding: 1rem;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 #contain-form > form > div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
+  height: 5rem;
+}
+#contain-form > form > div:last-child {
+  order: 3;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+#contain-table {
+  width: 100%;
+  height: 30rem;
+  position: relative;
+}
+
+ngx-spinner {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10 !important;
 }

@@ -48,7 +48,15 @@
        </form>
     </article>
     <article id="contain-table">
-      <h3>table</h3>
+      <ngx-spinner bdColor = "rgb(233,236,239)" size = "medium"   color = "#0077b6" type = "ball-clip-rotate-multiple" [fullScreen] = "false"></ngx-spinner>
+      <ag-grid-angular
+        class="ag-theme-alpine"
+        style="width: 100%; height: 100%;cursor: pointer;"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [gridOptions]="gridOptions"
+        rowSelection="single">
+      </ag-grid-angular>
     </article>
   </section>
 </main>

@@ -16,4 +16,8 @@ export class EmpleadosService {
       map(response => response.list)
     );
   }
+
+  getEmpleByDepartamento(body:any):Observable<any>{
+    return this.http.post<any>(`${this.url}/list_empl_by_departamento`,body);
+  }
 }
