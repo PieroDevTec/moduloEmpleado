@@ -1,9 +1,13 @@
 import { Component,OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from "@angular/forms";
 
+/*SERVICES*/
 import { EmpleadosService  } from "src/app/services/empleados.service";
 
-import { ColDef,GridOptions } from "ag-grid-community";
+/*INTERFACES*/
+import {Response} from "src/utils/interfaces/response";
+/*UTILS*/
+import { ColDef,GridOptions,GridReadyEvent } from "ag-grid-community";
 import Swal from "sweetalert2";
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -35,6 +39,10 @@ export class HomeComponent implements OnInit{
   ];
   rowData:any[] = [];
   gridOptions:GridOptions = {
+    defaultColDef:{
+      filter:true
+    },
+    paginationPageSizeSelector: [5, 10, 20,100],
     localeText:this.getSpanishTranslation(),
     pagination:true,
     paginationPageSize:5
@@ -65,28 +73,56 @@ export class HomeComponent implements OnInit{
     )
   }
   valueFormCategoria(event:any) {
-    console.log(event.name);
     if(event.name === 'Empleado'){
       this.status.form_empleado = true;
       this.status.form_departamento = false;
-      console.log('form empleado');
       this.form_empleado.patchValue({
         categoria: this.categoria.find(cate => cate.name === 'Empleado') || null,
-        departamento:'Accounting'
-      })
+        empleado:''
+      });
+      this.spinner.show();
+      this.emplService.getListEmpleados().subscribe(
+        (data)=> {
+          this.rowData = data;
+          this.spinner.hide()
+        },
+        (error)=> {
+          this.spinner.hide()
+          Swal.fire({
+            icon:"error",
+            title:"Error Server",
+            text:"No se ha podido traer los datos de los servidores",
+            footer:"<p><strong>MODULO DE EMPLEADOS</strong></p>"
+          });
+          console.error(error);
+        }
+      )
     }else if(event.name === 'Departamento'){
       this.status.form_departamento = true;
       this.status.form_empleado = false;
-      console.log('form departamento');
       this.form_departamento.patchValue({
         categoria:this.categoria.find(cate => cate.name === 'Departamento') || null,
-        empleado:''
-      })
+        departamento:'Accounting'
+      });
+      this.spinner.show();
+      this.emplService.getEmpleByDepartamento({departamento:"Accounting"}).subscribe(
+        (data)=>{
+          this.rowData = data.list;
+          this.spinner.hide();
+        },
+        (error)=>{
+          this.spinner.hide();
+          Swal.fire({
+            icon:"error",
+            title:"Error Server",
+            text:"No se ha podido traer los datos de los servidores",
+            footer:"<p><strong>MODULO DE EMPLEADOS</strong></p>"
+          });
+          console.error(error);
+        }
+      )
     }
   }
-
-
-
   onSubmitDepartamento(){
     let departamento = this.form_departamento.get('departamento')?.value;
     let body  = {
@@ -118,9 +154,46 @@ export class HomeComponent implements OnInit{
     )
   };
   onSubmitEmpleado(){
-    console.log('Enviando data => ',this.form_empleado.value);
-  }
 
+    let data = this.form_empleado.get("empleado")?.value;
+    const empleado = data.split(' ');
+
+    let body = {
+      nombre:empleado[0],
+      apellido:empleado[1]
+    };
+    console.log(body)
+    this.spinner.show();
+    this.emplService.getListEmpleadosData(body).subscribe(
+      (data:Response)=>{
+        console.log(data);
+        this.spinner.hide();
+        if(data.codIcon === 0){
+          this.rowData = data.list;
+        }else if (data.codIcon === 1){
+          Swal.fire({
+            title:"Observacion",
+            text:data.mensaje,
+            icon:"question",
+            footer:`<p><strong>${data.nameApplication}</strong></p>`
+          });
+        }
+      },
+      (error)=> {
+        Swal.fire({
+          title:"Error Server",
+          text:`El servidor se encuentra apago o en un actualizacon.`,
+          icon:"error"
+        });
+        console.error(error);
+        this.spinner.hide();
+      }
+    )
+    this.form_empleado.patchValue({
+      empleado:''
+    });
+
+  }
   //traduccion ag grid
   getSpanishTranslation() {
     return {
@@ -146,5 +219,4 @@ export class HomeComponent implements OnInit{
       // Agrega más traducciones si es necesario
     };
   }
-
 }

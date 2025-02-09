@@ -20,4 +20,13 @@ export class EmpleadosService {
   getEmpleByDepartamento(body:any):Observable<any>{
     return this.http.post<any>(`${this.url}/list_empl_by_departamento`,body);
   }
+
+  getListEmpleados():Observable<any>{
+    return this.http.get<any>(`${this.url}/lista_empleados`).pipe(
+      map(response => response.list)
+    );
+  };
+  getListEmpleadosData(body:any):Observable<any>{
+    return this.http.post<any>(`${this.url}/lista_datos`,body);
+  }
 }

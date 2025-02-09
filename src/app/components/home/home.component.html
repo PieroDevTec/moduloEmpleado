@@ -9,7 +9,7 @@
           <ng-select
             (change)="valueFormCategoria($event)"
            formControlName="categoria" [items]="categoria" bindLabel="name"
-            placeholder="Selecciona una Categoria" style="width: 15rem;height: 3rem;cursor: pointer;">
+            placeholder="Selecciona una Categoria" style="width: 15rem;cursor: pointer;">
           </ng-select>
         </div>
         <div>
@@ -35,12 +35,12 @@
           <ng-select
           (change)="valueFormCategoria($event)"
          formControlName="categoria" [items]="categoria" bindLabel="name"
-          placeholder="Selecciona una Categoria" style="width: 15rem;height: 3rem;cursor: pointer;">
+          placeholder="Selecciona una Categoria" style="width: 15rem;cursor: pointer;">
         </ng-select>
         </div>
         <div>
           <label style="font-weight: 600;" class="form-label" for="empleado">Empleado</label>
-          <input style="width: 25rem;" type="text" name="empleado" class="form-control" placeholder="Ingrese los datos del empleado" autofocus>
+          <input style="width: 25rem;" type="text" name="empleado" class="form-control" placeholder="Ingrese los datos del empleado" autofocus formControlName="empleado">
         </div>
         <div>
           <button type="submit" class="btn btn-success" >Buscar</button>

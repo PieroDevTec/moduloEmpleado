@@ -1,9 +1,12 @@
 <nav>
   <article>
-    <p>modulo de empleados</p>
+    <div><p id="title_modulo">modulo de empleados</p></div>
+    <div>
+      <img src="assets/images/logo_empleados.png"  alt="logo empleados">
+    </div>
   </article>
   <article>
-    <a href="">Buscar Empleado</a>
-    <a href="">Reporte Ingreso Empleado</a>
+    <a routerLink="/home" >Buscar Empleado por Departamento</a>
+    <a routerLink="/repoemple" (click)="alert()">Reporte Ingreso Empleado</a>
   </article>
 </nav>

@@ -12,12 +12,14 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { NgSelectModule } from "@ng-select/ng-select";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ReporteEmpleadoComponent } from './components/reporte-empleado/reporte-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ReporteEmpleadoComponent
   ],
   imports: [
     BrowserModule,

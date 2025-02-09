@@ -6,18 +6,28 @@ nav{
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  background-color: #61a5c2;
+  background-color: #89c2d9;
 }
-
+#title_modulo {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
 nav > article:first-child {
   width: 100%;
-  height: 30vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+nav > article:first-child > div:last-child {
+  width: 100%;
+}
+nav > article:first-child > div:last-child  > img {
+  width: 100%;
+  height: 45vh;
+}
 nav > article:first-child > p {
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -26,7 +36,7 @@ nav > article:first-child > p {
 
 nav > article:last-child {
   width: 100%;
-  height: 70vh;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -36,7 +46,7 @@ nav > article:last-child {
 nav > article:last-child > a {
   text-decoration: none;
   color: black;
-  background-color: #89c2d9;
+  background-color: #61a5c2;
   display: flex;
   justify-content: center;
   cursor: pointer;
