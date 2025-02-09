@@ -4,7 +4,8 @@ EL MODULO MUESTRA LOS EMPLEADOS QUE ESTAN EN LA BASE DE DATOS DE ORACLE ESQUEMA 
 
 ## DEMO
 
-![Busqueda por Departamento]([https://github.com/PieroDevTec/moduloEmpleado/src/assets/demo_departamento.PNG](https://github.com/PieroDevTec/moduloEmpleado/blob/master/src/assets/images/demo_departamento.PNG?raw=true))
+![Busqueda por Departamento](https://raw.githubusercontent.com/PieroDevTec/moduloEmpleado/master/src/assets/images/demo_departamento.PNG)
+
 
 ![Busqueda por Departamento](src/assets/demo_empleado.PNG)
 
