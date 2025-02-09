@@ -19,7 +19,7 @@ Instalar el proyecto modulo_empleados con npm
     
 ## AUTHORS
 
-- [@pierodevtec](https://github.com/PieroDevTec/hyperblog)
+- [@pierodevtec](https://github.com/PieroDevTec/moduloEmpleado)
 
 
 
