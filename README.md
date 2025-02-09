@@ -7,7 +7,8 @@ EL MODULO MUESTRA LOS EMPLEADOS QUE ESTAN EN LA BASE DE DATOS DE ORACLE ESQUEMA 
 ![Busqueda por Departamento](https://raw.githubusercontent.com/PieroDevTec/moduloEmpleado/master/src/assets/images/demo_departamento.PNG)
 
 
-![Busqueda por Departamento](src/assets/demo_empleado.PNG)
+![Busqueda por Empleado](https://raw.githubusercontent.com/PieroDevTec/moduloEmpleado/master/src/assets/images/demo_empleado.PNG)
+
 
 ## INSTALLATION
 El proyecto ha sido generado con  [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
